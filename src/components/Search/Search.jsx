@@ -6,11 +6,12 @@ import './search-styles.css';
 
 const Search = () => {
   const [parametro, setParametro] = useSearchParams();
+  const limit = 4;
 
   useEffect(() => {
     (async () => {
       if (parametro.get('search') != null) {
-        const data = await fetchResults(parametro.get('search'));
+        const data = await fetchResults({ q: parametro.get('search'), limit });
         setResults(data);
       }
     })();
@@ -23,7 +24,7 @@ const Search = () => {
 
   const handleSearch = async () => {
     setParametro({ search: searchTerm });
-    const data = await fetchResults(searchTerm);
+    const data = await fetchResults({ q: searchTerm, limit });
     setResults(data);
   };
 

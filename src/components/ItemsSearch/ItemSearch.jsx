@@ -9,7 +9,7 @@ const ItemSearch = ({ results }) => {
         <img src={results.thumbnail} alt="img-product" className="img__product" />
         <div className="box">
           <div className="box-2_item">
-            <span className="price">$ {typeOf(results.price)}</span>
+            <span className="price">$ {results.price}</span>
           </div>
           <span className="description">{results.title}</span>
           <span className="province__product">{results.seller_address.state.name}</span>

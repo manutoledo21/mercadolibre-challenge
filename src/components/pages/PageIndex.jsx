@@ -10,7 +10,7 @@ export const PageIndex = () => {
   return (
     <>
       <Search />
-      {results.slice(0, 4).map((result) => (
+      {results.map((result) => (
         <ItemSearch key={result.id} results={result} />
       ))}
     </>
