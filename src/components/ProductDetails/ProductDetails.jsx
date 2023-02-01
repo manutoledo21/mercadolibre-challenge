@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getInfoId, getInfoIdDescription } from '../API/Service';
 import { useAppContext } from '../context/MyAppContext';
+import { formatterCurrency } from '../helper/helper';
 import './details-styles.css';
 
 const ProductDetails = () => {
@@ -28,7 +29,7 @@ const ProductDetails = () => {
             </span>
             <h1 className="title__product">{results.title}</h1>
             <div className="money__product">
-              <span className="price__product">$ {results.price}</span>
+              <span className="price__product">{formatterCurrency.format(results.price)}</span>
             </div>
             <div className="button__product">
               <button className="buy__product">Comprar</button>

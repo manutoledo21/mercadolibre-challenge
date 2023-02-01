@@ -22,7 +22,8 @@ const Search = () => {
     search: { results, setResults },
   } = useAppContext();
 
-  const handleSearch = async () => {
+  const handleSearch = async (e) => {
+    e.preventDefault();
     setParametro({ search: searchTerm });
     const data = await fetchResults({ q: searchTerm, limit });
     setResults(data);
@@ -31,19 +32,20 @@ const Search = () => {
   return (
     <header>
       <nav>
-        <div className="search__container">
-          <img src="../../../public/assets/Logo_ML.png" className="icon__ml" alt="logo-ML" />
+        <form className="search__container" onSubmit={handleSearch}>
+          <img src="./assets/Logo_ML.png" className="icon__ml" alt="logo-ML" />
           <input
             type="text"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="input__search"
             placeholder="Nunca dejes de buscar"
+            required
           />
-          <button type="submit" onClick={handleSearch} className="btn__search">
-            <img src="../../../public/assets/ic_Search.png" alt="icon-search" />
+          <button type="submit" className="btn__search">
+            <img src="./assets/ic_Search.png" alt="icon-search" />
           </button>
-        </div>
+        </form>
       </nav>
     </header>
   );

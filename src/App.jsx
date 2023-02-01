@@ -1,11 +1,11 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { TagAppContext } from './components/context/MyAppContext';
 import { PageIndex } from './components/pages/PageIndex';
 import { PageDetailsProduct } from './components/pages/PageDetailsProduct';
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <TagAppContext>
         <Routes>
           <Route path="/" element={<PageIndex />} />
@@ -13,7 +13,7 @@ function App() {
           <Route path="/items/:id" element={<PageDetailsProduct />}></Route>
         </Routes>
       </TagAppContext>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
