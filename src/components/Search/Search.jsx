@@ -33,7 +33,9 @@ const Search = () => {
     <header>
       <nav>
         <form className="search__container" onSubmit={handleSearch}>
-          <img src="./assets/Logo_ML.png" className="icon__ml" alt="logo-ML" />
+          <a href="">
+            <img src="./assets/Logo_ML.png" className="icon__ml" alt="logo-ML" />
+          </a>
           <input
             type="text"
             value={searchTerm}
